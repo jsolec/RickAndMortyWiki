@@ -9,6 +9,7 @@ import UIKit
 
 class AppCoordinator {
     struct Dependencies {
+        let networkService: NetworkService
     }
     
     private var window: UIWindow?
@@ -22,7 +23,9 @@ class AppCoordinator {
         let navigationController = UINavigationController()
         let mainViewController = CharacterListViewController(
             characterListViewModel: .init(
-                dependencies: .init()
+                dependencies: .init(
+                    networkService: self.dependencies.networkService
+                )
             )
         )
         navigationController.pushViewController(mainViewController, animated: true)

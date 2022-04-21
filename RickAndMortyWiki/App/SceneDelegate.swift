@@ -20,8 +20,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         
+        let keychainService = KeychainService()
         self.appCoordinator = AppCoordinator(
-            dependencies: .init()
+            dependencies: .init(
+                networkService: URLNetworkService(
+                    dependencies: .init(
+                        keychain: keychainService
+                    )
+                )
+            )
         )
         
         self.appCoordinator?.start(in: window)

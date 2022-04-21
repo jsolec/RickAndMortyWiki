@@ -27,6 +27,10 @@
 		B2E2EF7A2811D2B400836D53 /* CharacterListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E2EF782811D2B300836D53 /* CharacterListCell.xib */; };
 		B2E2EF7C2811D54100836D53 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2E2EF7B2811D54100836D53 /* Localizable.strings */; };
 		B2E2EF7E2811D57700836D53 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF7D2811D57700836D53 /* Resources.swift */; };
+		B2E2EF812811D60400836D53 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF802811D60400836D53 /* NetworkService.swift */; };
+		B2E2EF832811D62700836D53 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF822811D62700836D53 /* KeychainService.swift */; };
+		B2E2EF862811D68500836D53 /* URLNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF852811D68500836D53 /* URLNetworkService.swift */; };
+		B2E2EF882811DBA200836D53 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF872811DBA200836D53 /* Endpoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,10 @@
 		B2E2EF782811D2B300836D53 /* CharacterListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterListCell.xib; sourceTree = "<group>"; };
 		B2E2EF7B2811D54100836D53 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		B2E2EF7D2811D57700836D53 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		B2E2EF802811D60400836D53 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		B2E2EF822811D62700836D53 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		B2E2EF852811D68500836D53 /* URLNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLNetworkService.swift; sourceTree = "<group>"; };
+		B2E2EF872811DBA200836D53 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +133,7 @@
 				B2E2EF632811CF0000836D53 /* Extensions */,
 				B2E2EF5F2811CD4300836D53 /* Features */,
 				B2E2EF602811CD5900836D53 /* Resources */,
+				B2E2EF7F2811D5F100836D53 /* Services */,
 				B2E2EF3C2811CBE600836D53 /* Info.plist */,
 			);
 			path = RickAndMortyWiki;
@@ -206,6 +215,25 @@
 				B2E2EF782811D2B300836D53 /* CharacterListCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B2E2EF7F2811D5F100836D53 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B2E2EF842811D67400836D53 /* NetworkService */,
+				B2E2EF822811D62700836D53 /* KeychainService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B2E2EF842811D67400836D53 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				B2E2EF802811D60400836D53 /* NetworkService.swift */,
+				B2E2EF852811D68500836D53 /* URLNetworkService.swift */,
+				B2E2EF872811DBA200836D53 /* Endpoints.swift */,
+			);
+			path = NetworkService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,7 +379,11 @@
 				B2E2EF692811CF4F00836D53 /* String+Utils.swift in Sources */,
 				B2E2EF6B2811CF6300836D53 /* UIImageView+Extensions.swift in Sources */,
 				B2E2EF7E2811D57700836D53 /* Resources.swift in Sources */,
+				B2E2EF862811D68500836D53 /* URLNetworkService.swift in Sources */,
 				B2E2EF312811CBE500836D53 /* SceneDelegate.swift in Sources */,
+				B2E2EF832811D62700836D53 /* KeychainService.swift in Sources */,
+				B2E2EF812811D60400836D53 /* NetworkService.swift in Sources */,
+				B2E2EF882811DBA200836D53 /* Endpoints.swift in Sources */,
 				B2E2EF792811D2B400836D53 /* CharacterListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

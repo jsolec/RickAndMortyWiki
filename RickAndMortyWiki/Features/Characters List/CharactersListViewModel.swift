@@ -10,6 +10,7 @@ import UIKit
 class CharactersListViewModel {
     
     struct Dependencies {
+        let networkService: NetworkService
     }
     
     private let dependencies: Dependencies
