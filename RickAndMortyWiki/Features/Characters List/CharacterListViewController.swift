@@ -13,6 +13,7 @@ class CharacterListViewController: UIViewController {
     
     private var characterListViewModel: CharactersListViewModel?
     private var viewData: [CharacterListInfoViewData] = []
+    private var loading = LoadingView()
     
     required init(characterListViewModel: CharactersListViewModel) {
         self.characterListViewModel = characterListViewModel
@@ -30,6 +31,28 @@ class CharacterListViewController: UIViewController {
         self.title = self.characterListViewModel?.navigationTitle
         
         self.setupTableView()
+        
+        self.characterListViewModel?.onCharactersRetrieved = { [weak self] characters in
+            self?.loading.hide()
+            self?.viewData = characters
+            self?.reloadData()
+        }
+        
+        self.characterListViewModel?.onLoadingStatusChanged = { [weak self] isLoading in
+            guard let self = self else { return }
+            if isLoading {
+                self.loading.show(in: self.view)
+            } else {
+                self.loading.hide()
+            }
+        }
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.characterListViewModel?.getCharacters()
     }
     
     func setupTableView() {
