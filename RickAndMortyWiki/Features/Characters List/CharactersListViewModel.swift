@@ -18,7 +18,7 @@ class CharactersListViewModel {
     var onCharactersRetrieved: (([CharacterListInfoViewData]) -> Void)!
     var onLoadingStatusChanged: ((Bool) -> Void)!
     
-    var navigationTitle: String = "Characters"
+    let navigationTitle: String = L10n.CharactersListView.title
     
     init(dependencies: Dependencies) {
         self.dependencies = dependencies

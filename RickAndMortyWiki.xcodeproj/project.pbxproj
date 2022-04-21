@@ -25,6 +25,8 @@
 		B2E2EF752811D1EA00836D53 /* CharacterListInfoViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF742811D1EA00836D53 /* CharacterListInfoViewData.swift */; };
 		B2E2EF792811D2B400836D53 /* CharacterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF772811D2B300836D53 /* CharacterListCell.swift */; };
 		B2E2EF7A2811D2B400836D53 /* CharacterListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E2EF782811D2B300836D53 /* CharacterListCell.xib */; };
+		B2E2EF7C2811D54100836D53 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2E2EF7B2811D54100836D53 /* Localizable.strings */; };
+		B2E2EF7E2811D57700836D53 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF7D2811D57700836D53 /* Resources.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		B2E2EF742811D1EA00836D53 /* CharacterListInfoViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInfoViewData.swift; sourceTree = "<group>"; };
 		B2E2EF772811D2B300836D53 /* CharacterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCell.swift; sourceTree = "<group>"; };
 		B2E2EF782811D2B300836D53 /* CharacterListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterListCell.xib; sourceTree = "<group>"; };
+		B2E2EF7B2811D54100836D53 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		B2E2EF7D2811D57700836D53 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,8 @@
 			children = (
 				B2E2EF372811CBE600836D53 /* Assets.xcassets */,
 				B2E2EF392811CBE600836D53 /* LaunchScreen.storyboard */,
+				B2E2EF7B2811D54100836D53 /* Localizable.strings */,
+				B2E2EF7D2811D57700836D53 /* Resources.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -306,6 +312,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2E2EF7C2811D54100836D53 /* Localizable.strings in Resources */,
 				B2E2EF3B2811CBE600836D53 /* LaunchScreen.storyboard in Resources */,
 				B2E2EF382811CBE600836D53 /* Assets.xcassets in Resources */,
 				B2E2EF712811D13800836D53 /* CharacterListViewController.xib in Resources */,
@@ -343,6 +350,7 @@
 				B2E2EF752811D1EA00836D53 /* CharacterListInfoViewData.swift in Sources */,
 				B2E2EF692811CF4F00836D53 /* String+Utils.swift in Sources */,
 				B2E2EF6B2811CF6300836D53 /* UIImageView+Extensions.swift in Sources */,
+				B2E2EF7E2811D57700836D53 /* Resources.swift in Sources */,
 				B2E2EF312811CBE500836D53 /* SceneDelegate.swift in Sources */,
 				B2E2EF792811D2B400836D53 /* CharacterListCell.swift in Sources */,
 			);
