@@ -67,6 +67,8 @@ extension CharacterListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        preconditionFailure()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterListCell", for: indexPath) as! CharacterListCell
+        cell.configure(viewData: self.viewData[indexPath.row])
+        return cell
     }
 }

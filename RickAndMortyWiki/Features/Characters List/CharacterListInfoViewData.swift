@@ -8,4 +8,7 @@
 import Foundation
 
 struct CharacterListInfoViewData {
+    let id: Int
+    let name: String
+    let thumbnailUrl: URL?
 }

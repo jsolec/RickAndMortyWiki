@@ -23,6 +23,8 @@
 		B2E2EF712811D13800836D53 /* CharacterListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E2EF6F2811D13800836D53 /* CharacterListViewController.xib */; };
 		B2E2EF732811D1CC00836D53 /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF722811D1CC00836D53 /* CharactersListViewModel.swift */; };
 		B2E2EF752811D1EA00836D53 /* CharacterListInfoViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF742811D1EA00836D53 /* CharacterListInfoViewData.swift */; };
+		B2E2EF792811D2B400836D53 /* CharacterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF772811D2B300836D53 /* CharacterListCell.swift */; };
+		B2E2EF7A2811D2B400836D53 /* CharacterListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E2EF782811D2B300836D53 /* CharacterListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		B2E2EF6F2811D13800836D53 /* CharacterListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterListViewController.xib; sourceTree = "<group>"; };
 		B2E2EF722811D1CC00836D53 /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
 		B2E2EF742811D1EA00836D53 /* CharacterListInfoViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInfoViewData.swift; sourceTree = "<group>"; };
+		B2E2EF772811D2B300836D53 /* CharacterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCell.swift; sourceTree = "<group>"; };
+		B2E2EF782811D2B300836D53 /* CharacterListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterListCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,12 +184,22 @@
 		B2E2EF6C2811D11700836D53 /* Characters List */ = {
 			isa = PBXGroup;
 			children = (
+				B2E2EF762811D29700836D53 /* Views */,
 				B2E2EF6E2811D13800836D53 /* CharacterListViewController.swift */,
 				B2E2EF6F2811D13800836D53 /* CharacterListViewController.xib */,
 				B2E2EF722811D1CC00836D53 /* CharactersListViewModel.swift */,
 				B2E2EF742811D1EA00836D53 /* CharacterListInfoViewData.swift */,
 			);
 			path = "Characters List";
+			sourceTree = "<group>";
+		};
+		B2E2EF762811D29700836D53 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B2E2EF772811D2B300836D53 /* CharacterListCell.swift */,
+				B2E2EF782811D2B300836D53 /* CharacterListCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +309,7 @@
 				B2E2EF3B2811CBE600836D53 /* LaunchScreen.storyboard in Resources */,
 				B2E2EF382811CBE600836D53 /* Assets.xcassets in Resources */,
 				B2E2EF712811D13800836D53 /* CharacterListViewController.xib in Resources */,
+				B2E2EF7A2811D2B400836D53 /* CharacterListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +344,7 @@
 				B2E2EF692811CF4F00836D53 /* String+Utils.swift in Sources */,
 				B2E2EF6B2811CF6300836D53 /* UIImageView+Extensions.swift in Sources */,
 				B2E2EF312811CBE500836D53 /* SceneDelegate.swift in Sources */,
+				B2E2EF792811D2B400836D53 /* CharacterListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
