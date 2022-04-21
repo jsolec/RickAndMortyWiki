@@ -20,6 +20,12 @@ class AppCoordinator {
     
     func start(in window: UIWindow?) {
         let navigationController = UINavigationController()
+        let mainViewController = CharacterListViewController(
+            characterListViewModel: .init(
+                dependencies: .init()
+            )
+        )
+        navigationController.pushViewController(mainViewController, animated: true)
         
         self.window = window
         self.window?.rootViewController = navigationController
