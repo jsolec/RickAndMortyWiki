@@ -16,6 +16,10 @@
 		B2E2EF502811CBE600836D53 /* RickAndMortyWikiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF4F2811CBE600836D53 /* RickAndMortyWikiUITests.swift */; };
 		B2E2EF522811CBE600836D53 /* RickAndMortyWikiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF512811CBE600836D53 /* RickAndMortyWikiUITestsLaunchTests.swift */; };
 		B2E2EF622811CE7D00836D53 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF612811CE7D00836D53 /* AppCoordinator.swift */; };
+		B2E2EF652811CF1A00836D53 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF642811CF1A00836D53 /* String+Localizable.swift */; };
+		B2E2EF672811CF3400836D53 /* Encodable+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF662811CF3400836D53 /* Encodable+Utils.swift */; };
+		B2E2EF692811CF4F00836D53 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF682811CF4F00836D53 /* String+Utils.swift */; };
+		B2E2EF6B2811CF6300836D53 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF6A2811CF6300836D53 /* UIImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		B2E2EF4F2811CBE600836D53 /* RickAndMortyWikiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyWikiUITests.swift; sourceTree = "<group>"; };
 		B2E2EF512811CBE600836D53 /* RickAndMortyWikiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyWikiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B2E2EF612811CE7D00836D53 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B2E2EF642811CF1A00836D53 /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		B2E2EF662811CF3400836D53 /* Encodable+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Utils.swift"; sourceTree = "<group>"; };
+		B2E2EF682811CF4F00836D53 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		B2E2EF6A2811CF6300836D53 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				B2E2EF5E2811CD3500836D53 /* App */,
+				B2E2EF632811CF0000836D53 /* Extensions */,
 				B2E2EF5F2811CD4300836D53 /* Features */,
 				B2E2EF602811CD5900836D53 /* Resources */,
 				B2E2EF3C2811CBE600836D53 /* Info.plist */,
@@ -149,6 +158,17 @@
 				B2E2EF392811CBE600836D53 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B2E2EF632811CF0000836D53 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B2E2EF662811CF3400836D53 /* Encodable+Utils.swift */,
+				B2E2EF642811CF1A00836D53 /* String+Localizable.swift */,
+				B2E2EF682811CF4F00836D53 /* String+Utils.swift */,
+				B2E2EF6A2811CF6300836D53 /* UIImageView+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,8 +302,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2E2EF622811CE7D00836D53 /* AppCoordinator.swift in Sources */,
+				B2E2EF672811CF3400836D53 /* Encodable+Utils.swift in Sources */,
+				B2E2EF652811CF1A00836D53 /* String+Localizable.swift in Sources */,
 				B2E2EF332811CBE500836D53 /* ViewController.swift in Sources */,
 				B2E2EF2F2811CBE500836D53 /* AppDelegate.swift in Sources */,
+				B2E2EF692811CF4F00836D53 /* String+Utils.swift in Sources */,
+				B2E2EF6B2811CF6300836D53 /* UIImageView+Extensions.swift in Sources */,
 				B2E2EF312811CBE500836D53 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
