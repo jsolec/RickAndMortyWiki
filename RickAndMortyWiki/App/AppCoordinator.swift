@@ -15,6 +15,8 @@ class AppCoordinator {
     private var window: UIWindow?
     private let dependencies: Dependencies
     
+    private var navigationController: UINavigationController?
+    
     init(dependencies: Dependencies) {
         self.dependencies = dependencies
     }
@@ -35,6 +37,8 @@ class AppCoordinator {
         self.window = window
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
+        
+        self.navigationController = navigationController
     }
 }
 
@@ -42,5 +46,15 @@ class AppCoordinator {
 extension AppCoordinator: CharacterListViewControllerDelegate {
     func characterListViewControllerDidRequestCharacter(withId id: Int) {
         
+        let detailViewController = CharacterDetailViewController(
+            characterViewModel: CharacterDetailViewModel(
+                dependencies: .init(
+                    characterDataFetcher: CharacterDataFetcher(dependencies: .init(networkService: self.dependencies.networkService)),
+                    formatter: .init()
+                ),
+                characterId: id
+            )
+        )
+        self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
