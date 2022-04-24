@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharacterDetailViewController" customModule="RickAndMortyWiki" customModuleProvider="target">
             <connections>
-                <outlet property="imageViewController" destination="ss7-qE-VGD" id="Sby-aK-ngA"/>
+                <outlet property="imageView" destination="ss7-qE-VGD" id="Sby-aK-ngA"/>
                 <outlet property="nameLabel" destination="7Qa-zE-vAW" id="x3H-Sn-stR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

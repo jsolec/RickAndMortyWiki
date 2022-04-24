@@ -9,7 +9,7 @@ import UIKit
 
 class CharacterDetailViewController: UIViewController {
 
-    @IBOutlet private weak var imageViewController: UIImageView!
+    @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     
     private var characterViewModel: CharacterDetailViewModelInterface
@@ -27,7 +27,31 @@ class CharacterDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.characterViewModel.onCharacterRetrieved = self.updateUI
+        self.characterViewModel.onLoadingStatusChanged = { [weak self] isLoading in
+            guard let self = self else { return }
+            if isLoading {
+                self.loading.show(in: self.view)
+            } else {
+                self.loading.hide()
+            }
+        }
 
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.characterViewModel.getCharacterInfo()
+    }
+    
+    private func updateUI(character: CharacterDetailViewData) {
+        if let url = character.imageURL {
+            self.imageView.load(url: url)
+        }
+        
+        self.title = character.name
+        self.nameLabel.text = character.name
     }
 }
