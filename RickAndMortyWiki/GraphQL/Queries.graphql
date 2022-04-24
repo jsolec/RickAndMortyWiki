@@ -7,3 +7,24 @@ query AllCharacters {
     }
   }
 }
+
+query GetCharacterById($id: ID!) {
+  character(id: $id) {
+    id
+    name
+    image
+    status
+    species
+    type
+    gender
+    origin {
+      name
+      dimension
+    }
+    location {
+      name
+      dimension
+    }
+    created
+  }
+}
