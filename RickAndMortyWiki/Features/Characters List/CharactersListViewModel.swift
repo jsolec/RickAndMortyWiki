@@ -7,10 +7,19 @@
 
 import UIKit
 
-class CharactersListViewModel {
+protocol CharactersListViewModelInterface {
+    var onCharactersRetrieved: (([CharacterListInfoViewData]) -> Void)! { get set }
+    var onLoadingStatusChanged: ((Bool) -> Void)!  { get set }
+    var navigationTitle: String  { get }
+    
+    func getCharacters()
+}
+
+class CharactersListViewModel: CharactersListViewModelInterface {
     
     struct Dependencies {
         let characterDataFetcher: AllCharactersDataFetcher
+        let formatter: CharacterListFormatter
     }
     
     private let dependencies: Dependencies
@@ -30,32 +39,16 @@ class CharactersListViewModel {
         self.onLoadingStatusChanged(true)
         
         self.dependencies.characterDataFetcher.getCharacters { [weak self] result in
-            self?.onLoadingStatusChanged(false)
+            guard let self = self else { return }
+            self.onLoadingStatusChanged(false)
             switch result {
             case .success(let response):
-                self?.convertCharactersToViewModel(characters: response)
+                let charactersViewModel = self.dependencies.formatter.prepareCharactersViewModel(characters: response)
+                self.onCharactersRetrieved(charactersViewModel)
             case .failure:
                 break
             }
         }
-    }
-    
-    private func convertCharactersToViewModel(characters: [CharacterInfoResponse]) {
-        let charactersViewModel: [CharacterListInfoViewData] = characters.compactMap({
-            var url: URL? = nil
-            
-            if let image = $0.imageUrl {
-                url = URL(string: image)
-            }
-            
-            return CharacterListInfoViewData(
-                id: $0.id,
-                name: $0.name,
-                thumbnailUrl: url
-            )
-        })
-        
-        self.onCharactersRetrieved(charactersViewModel)
     }
 }
 

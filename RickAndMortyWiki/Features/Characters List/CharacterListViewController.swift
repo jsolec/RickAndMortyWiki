@@ -7,16 +7,24 @@
 
 import UIKit
 
+protocol CharacterListViewControllerDelegate {
+    func characterListViewControllerDidRequestCharacter(withId id: Int)
+}
+
 class CharacterListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var characterListViewModel: CharactersListViewModel?
+    private var characterListViewModel: CharactersListViewModelInterface
+    private let delegate: CharacterListViewControllerDelegate?
+    
     private var viewData: [CharacterListInfoViewData] = []
     private var loading = LoadingView()
     
-    required init(characterListViewModel: CharactersListViewModel) {
+    required init(characterListViewModel: CharactersListViewModelInterface, delegate: CharacterListViewControllerDelegate?) {
         self.characterListViewModel = characterListViewModel
+        self.delegate = delegate
+        
         super.init(nibName: "CharacterListViewController", bundle: .main)
     }
     
@@ -28,17 +36,17 @@ class CharacterListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = self.characterListViewModel?.navigationTitle
+        self.title = self.characterListViewModel.navigationTitle
         
         self.setupTableView()
         
-        self.characterListViewModel?.onCharactersRetrieved = { [weak self] characters in
+        self.characterListViewModel.onCharactersRetrieved = { [weak self] characters in
             self?.loading.hide()
             self?.viewData = characters
             self?.reloadData()
         }
         
-        self.characterListViewModel?.onLoadingStatusChanged = { [weak self] isLoading in
+        self.characterListViewModel.onLoadingStatusChanged = { [weak self] isLoading in
             guard let self = self else { return }
             if isLoading {
                 self.loading.show(in: self.view)
@@ -52,7 +60,7 @@ class CharacterListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.characterListViewModel?.getCharacters()
+        self.characterListViewModel.getCharacters()
     }
     
     func setupTableView() {
@@ -76,6 +84,7 @@ class CharacterListViewController: UIViewController {
 extension CharacterListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
+        self.delegate?.characterListViewControllerDidRequestCharacter(withId: self.viewData[indexPath.row].id)
     }
 }
 

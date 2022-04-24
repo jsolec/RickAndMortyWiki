@@ -22,16 +22,25 @@ class AppCoordinator {
     func start(in window: UIWindow?) {
         let navigationController = UINavigationController()
         let mainViewController = CharacterListViewController(
-            characterListViewModel: .init(
+            characterListViewModel: CharactersListViewModel(
                 dependencies: .init(
-                    characterDataFetcher: AllCharactersDataFetcher(dependencies: .init(networkService: self.dependencies.networkService))
+                    characterDataFetcher: AllCharactersDataFetcher(dependencies: .init(networkService: self.dependencies.networkService)),
+                    formatter: .init()
                 )
-            )
+            ),
+            delegate: self
         )
         navigationController.pushViewController(mainViewController, animated: true)
         
         self.window = window
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
+    }
+}
+
+//MARK: - CharacterListViewControllerDelegate
+extension AppCoordinator: CharacterListViewControllerDelegate {
+    func characterListViewControllerDidRequestCharacter(withId id: Int) {
+        
     }
 }
