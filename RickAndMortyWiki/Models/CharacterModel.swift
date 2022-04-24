@@ -45,3 +45,15 @@ struct CharacterInfoResponse: Decodable {
     let name: String
     let imageUrl: String?
 }
+
+struct CharacterDetailResponse: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case imageUrl = "image"
+    }
+    
+    let id: Int
+    let name: String
+    let imageUrl: String?
+}
