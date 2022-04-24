@@ -36,12 +36,14 @@ class CharacterDetailViewModel: CharacterDetailViewModelInterface {
     }
     
     func getCharacterInfo() {
+        self.onLoadingStatusChanged(true)
         self.dependencies.characterDataFetcher.getCharacterBy(id: self.characterId) { [weak self] response in
             guard let self = self else { return }
             switch response {
             case .success(let response):
                 let characterViewModel = self.dependencies.formatter.prepareCharacterDetailViewModel(character: response!)
                 self.onCharacterRetrieved(characterViewModel)
+                self.onLoadingStatusChanged(false)
             case .failure: break
             }
         }
