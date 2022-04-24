@@ -10,7 +10,7 @@ import UIKit
 class CharactersListViewModel {
     
     struct Dependencies {
-        let networkService: NetworkService
+        let characterDataFetcher: AllCharactersDataFetcher
     }
     
     private let dependencies: Dependencies
@@ -26,16 +26,14 @@ class CharactersListViewModel {
     }
     
     func getCharacters() {
-        let url = RickAndMortyEndpoint.character.url()
-        let request = CharacterListRequest(page: 0)
         
         self.onLoadingStatusChanged(true)
         
-        self.dependencies.networkService.get(with: url, request: request, needsAuthentication: false) { [weak self] (result: Result<CharacterListResponse, Error>) -> Void in
+        self.dependencies.characterDataFetcher.getCharacters { [weak self] result in
             self?.onLoadingStatusChanged(false)
             switch result {
             case .success(let response):
-                self?.convertCharactersToViewModel(characters: response.results)
+                self?.convertCharactersToViewModel(characters: response)
             case .failure:
                 break
             }

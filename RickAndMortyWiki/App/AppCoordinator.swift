@@ -9,7 +9,7 @@ import UIKit
 
 class AppCoordinator {
     struct Dependencies {
-        let networkService: NetworkService
+        let networkService: ApolloNetworkService
     }
     
     private var window: UIWindow?
@@ -24,7 +24,7 @@ class AppCoordinator {
         let mainViewController = CharacterListViewController(
             characterListViewModel: .init(
                 dependencies: .init(
-                    networkService: self.dependencies.networkService
+                    characterDataFetcher: AllCharactersDataFetcher(dependencies: .init(networkService: self.dependencies.networkService))
                 )
             )
         )
