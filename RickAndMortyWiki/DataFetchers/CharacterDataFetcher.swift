@@ -35,6 +35,7 @@ class CharacterDataFetcher {
                 let characterResponse = CharacterDetailResponse(
                     id: id,
                     name: name,
+                    status: character.status,
                     imageUrl: character.image
                 )
                 

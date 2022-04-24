@@ -9,5 +9,6 @@ import Foundation
 
 struct CharacterDetailViewData {
     let name: String
+    let status: String
     let imageURL: URL?
 }

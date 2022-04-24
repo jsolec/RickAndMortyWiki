@@ -6,4 +6,11 @@
   
 */
 
+//MARK: - General
+"unknown" = "Unknown";
+
+//MARK: - Character List
 "characters_list_title" = "Characters";
+
+//MARK: - Character Detail
+"characters_detail_status" = "Status: ";

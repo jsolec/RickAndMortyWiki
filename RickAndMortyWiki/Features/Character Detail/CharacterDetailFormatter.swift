@@ -17,6 +17,7 @@ class CharacterDetailFormatter {
         
         return CharacterDetailViewData(
             name: character.name,
+            status: "\(L10n.CharacterDetailView.status) \(character.status ?? L10n.General.unknown)",
             imageURL: imageURL
         )
     }

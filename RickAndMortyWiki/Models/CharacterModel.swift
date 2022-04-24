@@ -50,10 +50,12 @@ struct CharacterDetailResponse: Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case name
+        case status
         case imageUrl = "image"
     }
     
     let id: Int
     let name: String
+    let status: String?
     let imageUrl: String?
 }

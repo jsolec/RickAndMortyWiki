@@ -8,7 +8,15 @@
 import Foundation
 
 enum L10n {
+    enum General {
+        static let unknown = "unknown".localized()
+    }
+    
     enum CharactersListView {
         static let title = "characters_list_title".localized()
+    }
+    
+    enum CharacterDetailView {
+        static let status = "characters_detail_status".localized()
     }
 }

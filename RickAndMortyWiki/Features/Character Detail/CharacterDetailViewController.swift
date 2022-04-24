@@ -11,6 +11,7 @@ class CharacterDetailViewController: UIViewController {
 
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var statusLabel: UILabel!
     
     private var characterViewModel: CharacterDetailViewModelInterface
     private var loading = LoadingView()
@@ -51,7 +52,7 @@ class CharacterDetailViewController: UIViewController {
             self.imageView.load(url: url)
         }
         
-        self.title = character.name
         self.nameLabel.text = character.name
+        self.statusLabel.text = character.status
     }
 }

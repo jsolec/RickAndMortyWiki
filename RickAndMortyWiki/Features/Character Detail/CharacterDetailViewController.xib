@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="imageView" destination="ss7-qE-VGD" id="Sby-aK-ngA"/>
                 <outlet property="nameLabel" destination="7Qa-zE-vAW" id="x3H-Sn-stR"/>
+                <outlet property="statusLabel" destination="CdR-uZ-fQg" id="1Qo-LU-Xdd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,7 +25,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5U-uv-5Ur">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="300.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="323"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ss7-qE-VGD">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
@@ -32,11 +33,17 @@
                                         <constraint firstAttribute="width" secondItem="ss7-qE-VGD" secondAttribute="height" multiplier="207:125" id="AdT-Rm-ci3"/>
                                     </constraints>
                                 </imageView>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vpv-1L-ezs">
-                                    <rect key="frame" x="15" y="265" width="384" height="20.5"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="vpv-1L-ezs">
+                                    <rect key="frame" x="15" y="265" width="384" height="43"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qa-zE-vAW">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CdR-uZ-fQg">
+                                            <rect key="frame" x="0.0" y="22.5" width="384" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
