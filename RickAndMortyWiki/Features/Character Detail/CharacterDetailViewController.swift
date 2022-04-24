@@ -29,6 +29,7 @@ class CharacterDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.clear()
         self.characterViewModel.onCharacterRetrieved = self.updateUI
         self.characterViewModel.onLoadingStatusChanged = { [weak self] isLoading in
             guard let self = self else { return }
@@ -54,5 +55,11 @@ class CharacterDetailViewController: UIViewController {
         
         self.nameLabel.text = character.name
         self.statusLabel.text = character.status
+    }
+    
+    private func clear() {
+        self.imageView.image = nil
+        self.nameLabel.text = nil
+        self.statusLabel.text = nil
     }
 }
