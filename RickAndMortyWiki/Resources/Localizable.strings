@@ -13,4 +13,10 @@
 "characters_list_title" = "Characters";
 
 //MARK: - Character Detail
-"characters_detail_status" = "Status: ";
+"characters_detail_info" = "Information";
+"characters_detail_created" = "Created:";
+"characters_detail_status" = "Status:";
+"characters_detail_species" = "Species:";
+"characters_detail_gender" = "Gender:";
+"characters_detail_origin" = "Origin:";
+"characters_detail_current_location" = "Current location:";

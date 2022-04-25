@@ -17,6 +17,11 @@ enum L10n {
     }
     
     enum CharacterDetailView {
+        static let created = "characters_detail_created".localized()
         static let status = "characters_detail_status".localized()
+        static let species = "characters_detail_species".localized()
+        static let gender = "characters_detail_gender".localized()
+        static let origin = "characters_detail_origin".localized()
+        static let currentLocation = "characters_detail_current_location".localized()
     }
 }
