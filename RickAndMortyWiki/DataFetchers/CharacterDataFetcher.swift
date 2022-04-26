@@ -39,8 +39,19 @@ class CharacterDataFetcher: CharacterDataFetcherInterface {
                 let characterResponse = CharacterDetailResponse(
                     id: id,
                     name: name,
-                    status: character.status,
-                    imageUrl: character.image
+                    status: CharacterStatus(rawValue: character.status ?? "") ?? .unknown,
+                    species: character.species,
+                    type: character.type,
+                    gender: CharacterGender(rawValue: character.gender ?? "") ?? .unknown,
+                    imageUrl: character.image,
+                    origin: .init(
+                        name: character.origin?.name ?? "",
+                        dimension: character.origin?.dimension ?? ""
+                    ),
+                    location: .init(
+                        name: character.location?.name ?? "",
+                        dimension: character.location?.dimension ?? ""
+                    )
                 )
                 
                 completion(.success(characterResponse))

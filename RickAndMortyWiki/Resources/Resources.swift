@@ -12,6 +12,11 @@ enum L10n {
         static let unknown = "unknown".localized()
         static let errorTitle = "error_title".localized()
         static let ok = "ok".localized()
+        static let statusAlive = "status_alive".localized()
+        static let statusDead = "status_dead".localized()
+        static let genderFemale = "gender_female".localized()
+        static let genderMale = "gender_male".localized()
+        static let genderGenderless = "gender_genderless".localized()
     }
     
     enum CharactersListView {

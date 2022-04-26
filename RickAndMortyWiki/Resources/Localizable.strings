@@ -10,6 +10,11 @@
 "unknown" = "Unknown";
 "error_title" = "An error has occurred";
 "ok" = "Ok";
+"status_alive" = "Alive";
+"status_dead" = "Dead";
+"gender_female" = "Female";
+"gender_male" = "Male";
+"gender_genderless" = "Genderless";
 
 //MARK: - Character List
 "characters_list_title" = "Characters";
