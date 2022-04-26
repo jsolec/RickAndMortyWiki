@@ -13,7 +13,7 @@ protocol CharacterListViewControllerDelegate: AnyObject {
 
 class CharacterListViewController: UIViewController, CanPresentAlerts {
     
-    @IBOutlet weak var tableView: UITableView!
+    private let tableView = UITableView()
     private let refreshControl = UIRefreshControl()
     
     private var characterListViewModel: CharactersListViewModelInterface
@@ -25,8 +25,7 @@ class CharacterListViewController: UIViewController, CanPresentAlerts {
     required init(characterListViewModel: CharactersListViewModelInterface, delegate: CharacterListViewControllerDelegate?) {
         self.characterListViewModel = characterListViewModel
         self.delegate = delegate
-        
-        super.init(nibName: "CharacterListViewController", bundle: .main)
+        super.init(nibName: nil, bundle: nil)
     }
     
     @available(*, unavailable)
@@ -71,11 +70,20 @@ class CharacterListViewController: UIViewController, CanPresentAlerts {
     }
     
     private func setupTableView() {
+        self.view.addSubview(self.tableView)
+        
+        NSLayoutConstraint.activate([
+            self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+        
         self.tableView.estimatedRowHeight = 70
         self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false
         
         self.tableView.tableFooterView = UIView()
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         

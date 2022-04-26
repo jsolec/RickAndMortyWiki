@@ -35,7 +35,6 @@
 		B2E2EF692811CF4F00836D53 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF682811CF4F00836D53 /* String+Utils.swift */; };
 		B2E2EF6B2811CF6300836D53 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF6A2811CF6300836D53 /* UIImageView+Extensions.swift */; };
 		B2E2EF702811D13800836D53 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF6E2811D13800836D53 /* CharacterListViewController.swift */; };
-		B2E2EF712811D13800836D53 /* CharacterListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E2EF6F2811D13800836D53 /* CharacterListViewController.xib */; };
 		B2E2EF732811D1CC00836D53 /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF722811D1CC00836D53 /* CharactersListViewModel.swift */; };
 		B2E2EF752811D1EA00836D53 /* CharacterListInfoViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF742811D1EA00836D53 /* CharacterListInfoViewData.swift */; };
 		B2E2EF792811D2B400836D53 /* CharacterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2EF772811D2B300836D53 /* CharacterListCell.swift */; };
@@ -104,7 +103,6 @@
 		B2E2EF682811CF4F00836D53 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		B2E2EF6A2811CF6300836D53 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		B2E2EF6E2811D13800836D53 /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
-		B2E2EF6F2811D13800836D53 /* CharacterListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterListViewController.xib; sourceTree = "<group>"; };
 		B2E2EF722811D1CC00836D53 /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
 		B2E2EF742811D1EA00836D53 /* CharacterListInfoViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInfoViewData.swift; sourceTree = "<group>"; };
 		B2E2EF772811D2B300836D53 /* CharacterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCell.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 			children = (
 				B2E2EF762811D29700836D53 /* Views */,
 				B2E2EF6E2811D13800836D53 /* CharacterListViewController.swift */,
-				B2E2EF6F2811D13800836D53 /* CharacterListViewController.xib */,
 				B2E2EF722811D1CC00836D53 /* CharactersListViewModel.swift */,
 				B2E2EF742811D1EA00836D53 /* CharacterListInfoViewData.swift */,
 				B210A85D2815B36100B9F904 /* CharacterListFormatter.swift */,
@@ -481,7 +478,6 @@
 				B2E2EF3B2811CBE600836D53 /* LaunchScreen.storyboard in Resources */,
 				B210A8562815A7E300B9F904 /* CharacterDetailViewController.xib in Resources */,
 				B2E2EF382811CBE600836D53 /* Assets.xcassets in Resources */,
-				B2E2EF712811D13800836D53 /* CharacterListViewController.xib in Resources */,
 				B2E2EF7A2811D2B400836D53 /* CharacterListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
