@@ -14,6 +14,7 @@ protocol CharacterListViewControllerDelegate: AnyObject {
 class CharacterListViewController: UIViewController, CanPresentAlerts {
     
     @IBOutlet weak var tableView: UITableView!
+    private let refreshControl = UIRefreshControl()
     
     private var characterListViewModel: CharactersListViewModelInterface
     private let delegate: CharacterListViewControllerDelegate?
@@ -58,6 +59,9 @@ class CharacterListViewController: UIViewController, CanPresentAlerts {
             }
         }
 
+        
+        self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        self.tableView.addSubview(self.refreshControl)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,7 +70,7 @@ class CharacterListViewController: UIViewController, CanPresentAlerts {
         self.characterListViewModel.getCharacters()
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         self.tableView.estimatedRowHeight = 70
         self.tableView.rowHeight = UITableView.automaticDimension
         
@@ -78,8 +82,14 @@ class CharacterListViewController: UIViewController, CanPresentAlerts {
         self.tableView.register(UINib(nibName: "CharacterListCell", bundle: nil), forCellReuseIdentifier: "CharacterListCell")
     }
     
-    func reloadData() {
+    private func reloadData() {
+        self.refreshControl.endRefreshing()
         self.tableView.reloadData()
+    }
+    
+    @objc private func refresh(_ sender: Any) {
+        self.refreshControl.beginRefreshing()
+        self.characterListViewModel.getCharacters()
     }
 }
 
