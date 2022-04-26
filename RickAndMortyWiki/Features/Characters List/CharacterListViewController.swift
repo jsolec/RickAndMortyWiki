@@ -91,7 +91,7 @@ class CharacterListViewController: UIViewController, CanPresentAlerts {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.tableView.register(UINib(nibName: "CharacterListCell", bundle: nil), forCellReuseIdentifier: "CharacterListCell")
+        self.tableView.register(CharacterListCell.self, forCellReuseIdentifier: "CharacterListCell")
     }
     
     private func reloadData() {
