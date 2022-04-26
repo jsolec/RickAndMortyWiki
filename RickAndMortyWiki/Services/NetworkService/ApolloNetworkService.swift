@@ -11,6 +11,6 @@ class ApolloNetworkService {
     let client: ApolloClient
     
     init(url: URL) {
-      client = ApolloClient(url: url)
+        self.client = ApolloClient(url: url)
     }
 }

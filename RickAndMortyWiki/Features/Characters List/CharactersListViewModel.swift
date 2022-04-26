@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CharactersListViewModelInterface {
+protocol CharactersListViewModelInterface: AnyObject {
     var onCharactersRetrieved: (([CharacterListInfoViewData]) -> Void)! { get set }
     var onLoadingStatusChanged: ((Bool) -> Void)!  { get set }
     var navigationTitle: String  { get }
@@ -18,7 +18,7 @@ protocol CharactersListViewModelInterface {
 class CharactersListViewModel: CharactersListViewModelInterface {
     
     struct Dependencies {
-        let characterDataFetcher: AllCharactersDataFetcher
+        let characterDataFetcher: AllCharactersDataFetcherInterface
         let formatter: CharacterListFormatter
     }
     

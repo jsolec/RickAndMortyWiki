@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CharacterListViewControllerDelegate {
+protocol CharacterListViewControllerDelegate: AnyObject {
     func characterListViewControllerDidRequestCharacter(withId id: Int)
 }
 

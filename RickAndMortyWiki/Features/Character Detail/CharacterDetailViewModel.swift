@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CharacterDetailViewModelInterface {
+protocol CharacterDetailViewModelInterface: AnyObject {
     var onCharacterRetrieved: ((CharacterDetailViewData) -> Void)! { get set }
     var onLoadingStatusChanged: ((Bool) -> Void)! { get set }
     var navigationTitle: String { get }
@@ -18,7 +18,7 @@ protocol CharacterDetailViewModelInterface {
 class CharacterDetailViewModel: CharacterDetailViewModelInterface {
     
     struct Dependencies {
-        let characterDataFetcher: CharacterDataFetcher
+        let characterDataFetcher: CharacterDataFetcherInterface
         let formatter: CharacterDetailFormatter
     }
     

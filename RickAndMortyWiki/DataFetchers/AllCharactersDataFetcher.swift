@@ -7,7 +7,11 @@
 
 import Foundation
 
-class AllCharactersDataFetcher {
+protocol AllCharactersDataFetcherInterface: AnyObject {
+    func getCharacters(completion: @escaping ((Result<[CharacterInfoResponse], Error>) -> ()))
+}
+
+class AllCharactersDataFetcher: AllCharactersDataFetcherInterface {
     
     struct Dependencies {
         let networkService: ApolloNetworkService
