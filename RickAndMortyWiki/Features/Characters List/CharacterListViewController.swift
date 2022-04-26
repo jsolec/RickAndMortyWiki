@@ -22,6 +22,8 @@ class CharacterListViewController: UIViewController, CanPresentAlerts {
     private var viewData: [CharacterListInfoViewData] = []
     private var loading = LoadingView()
     
+    private var isLoading = false
+    
     required init(characterListViewModel: CharactersListViewModelInterface, delegate: CharacterListViewControllerDelegate?) {
         self.characterListViewModel = characterListViewModel
         self.delegate = delegate
@@ -41,8 +43,9 @@ class CharacterListViewController: UIViewController, CanPresentAlerts {
         self.setupTableView()
         
         self.characterListViewModel.onCharactersRetrieved = { [weak self] characters in
-            self?.viewData = characters
-            self?.reloadData()
+            guard let self = self else { return }
+            self.viewData.append(contentsOf: characters)
+            self.reloadData()
         }
         
         self.characterListViewModel.onCharactersError = { [weak self] error in
@@ -51,6 +54,7 @@ class CharacterListViewController: UIViewController, CanPresentAlerts {
         
         self.characterListViewModel.onLoadingStatusChanged = { [weak self] isLoading in
             guard let self = self else { return }
+            self.isLoading = isLoading
             if isLoading {
                 self.loading.show(in: self.view)
             } else {
@@ -123,5 +127,16 @@ extension CharacterListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterListCell", for: indexPath) as! CharacterListCell
         cell.configure(viewData: self.viewData[indexPath.row])
         return cell
+    }
+}
+
+//MARK: - UITableViewDataSourcePrefetching
+extension CharacterListViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollMargin: CGFloat = 50
+        if scrollView.contentOffset.y > self.tableView.contentSize.height - scrollMargin - scrollView.frame.size.height {
+            guard !self.isLoading else { return }
+            self.characterListViewModel.getCharacters()
+        }
     }
 }

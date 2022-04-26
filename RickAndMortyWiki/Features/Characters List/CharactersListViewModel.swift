@@ -25,6 +25,8 @@ class CharactersListViewModel: CharactersListViewModelInterface {
     
     private let dependencies: Dependencies
     private var searchText: String? = nil
+    private var nextPage: Int = 0
+    private var totalPages: Int = 0
     
     var onCharactersRetrieved: (([CharacterListInfoViewData]) -> Void)!
     var onCharactersError: ((String) -> Void)!
@@ -37,15 +39,17 @@ class CharactersListViewModel: CharactersListViewModelInterface {
     }
     
     func getCharacters() {
-        
+        guard self.nextPage <= self.totalPages else { return }
         self.onLoadingStatusChanged(true)
         
-        self.dependencies.characterDataFetcher.getCharacters { [weak self] result in
+        self.dependencies.characterDataFetcher.getCharacters(page: self.nextPage) { [weak self] result in
             guard let self = self else { return }
             self.onLoadingStatusChanged(false)
             switch result {
             case .success(let response):
-                let charactersViewModel = self.dependencies.formatter.prepareCharactersViewModel(characters: response)
+                self.totalPages = response.info.pages
+                self.nextPage = response.info.next
+                let charactersViewModel = self.dependencies.formatter.prepareCharactersViewModel(characters: response.results)
                 self.onCharactersRetrieved(charactersViewModel)
             case .failure(let error):
                 self.onCharactersError(error.localizedDescription)

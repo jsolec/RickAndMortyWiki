@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AllCharactersDataFetcherInterface: AnyObject {
-    func getCharacters(completion: @escaping ((Result<[CharacterInfoResponse], Error>) -> ()))
+    func getCharacters(page: Int, completion: @escaping ((Result<CharacterListResponse, Error>) -> ()))
 }
 
 class AllCharactersDataFetcher: AllCharactersDataFetcherInterface {
@@ -23,9 +23,9 @@ class AllCharactersDataFetcher: AllCharactersDataFetcherInterface {
         self.dependencies = dependencies
     }
     
-    func getCharacters(completion: @escaping ((Result<[CharacterInfoResponse], Error>) -> ())) {
+    func getCharacters(page: Int, completion: @escaping ((Result<CharacterListResponse, Error>) -> ())) {
         
-        self.dependencies.networkService.client.fetch(query: AllCharactersQuery(), queue: .main, resultHandler: { result in
+        self.dependencies.networkService.client.fetch(query: AllCharactersQuery(page: page), queue: .main, resultHandler: { result in
             switch result {
             case .success(let response):
                 
@@ -41,7 +41,12 @@ class AllCharactersDataFetcher: AllCharactersDataFetcherInterface {
                     )
                 } ?? []
                 
-                completion(.success(characters))
+                let result = CharacterListResponse(
+                    info: .init(pages: response.data?.characters?.info?.pages ?? 0, next: response.data?.characters?.info?.next ?? 0),
+                    results: characters
+                )
+                
+                completion(.success(result))
             case .failure(let error):
                 completion(.failure(error))
             }

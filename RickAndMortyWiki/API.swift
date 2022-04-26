@@ -8,9 +8,14 @@ public final class AllCharactersQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query AllCharacters {
-      characters {
+    query AllCharacters($page: Int) {
+      characters(page: $page) {
         __typename
+        info {
+          __typename
+          pages
+          next
+        }
         results {
           __typename
           id
@@ -23,7 +28,14 @@ public final class AllCharactersQuery: GraphQLQuery {
 
   public let operationName: String = "AllCharacters"
 
-  public init() {
+  public var page: Int?
+
+  public init(page: Int? = nil) {
+    self.page = page
+  }
+
+  public var variables: GraphQLMap? {
+    return ["page": page]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -31,7 +43,7 @@ public final class AllCharactersQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("characters", type: .object(Character.selections)),
+        GraphQLField("characters", arguments: ["page": GraphQLVariable("page")], type: .object(Character.selections)),
       ]
     }
 
@@ -61,6 +73,7 @@ public final class AllCharactersQuery: GraphQLQuery {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("info", type: .object(Info.selections)),
           GraphQLField("results", type: .list(.object(Result.selections))),
         ]
       }
@@ -71,8 +84,8 @@ public final class AllCharactersQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(results: [Result?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Characters", "results": results.flatMap { (value: [Result?]) -> [ResultMap?] in value.map { (value: Result?) -> ResultMap? in value.flatMap { (value: Result) -> ResultMap in value.resultMap } } }])
+      public init(info: Info? = nil, results: [Result?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Characters", "info": info.flatMap { (value: Info) -> ResultMap in value.resultMap }, "results": results.flatMap { (value: [Result?]) -> [ResultMap?] in value.map { (value: Result?) -> ResultMap? in value.flatMap { (value: Result) -> ResultMap in value.resultMap } } }])
       }
 
       public var __typename: String {
@@ -84,12 +97,72 @@ public final class AllCharactersQuery: GraphQLQuery {
         }
       }
 
+      public var info: Info? {
+        get {
+          return (resultMap["info"] as? ResultMap).flatMap { Info(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "info")
+        }
+      }
+
       public var results: [Result?]? {
         get {
           return (resultMap["results"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Result?] in value.map { (value: ResultMap?) -> Result? in value.flatMap { (value: ResultMap) -> Result in Result(unsafeResultMap: value) } } }
         }
         set {
           resultMap.updateValue(newValue.flatMap { (value: [Result?]) -> [ResultMap?] in value.map { (value: Result?) -> ResultMap? in value.flatMap { (value: Result) -> ResultMap in value.resultMap } } }, forKey: "results")
+        }
+      }
+
+      public struct Info: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Info"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("pages", type: .scalar(Int.self)),
+            GraphQLField("next", type: .scalar(Int.self)),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(pages: Int? = nil, next: Int? = nil) {
+          self.init(unsafeResultMap: ["__typename": "Info", "pages": pages, "next": next])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The amount of pages.
+        public var pages: Int? {
+          get {
+            return resultMap["pages"] as? Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "pages")
+          }
+        }
+
+        /// Number of the next page (if it exists)
+        public var next: Int? {
+          get {
+            return resultMap["next"] as? Int
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "next")
+          }
         }
       }
 

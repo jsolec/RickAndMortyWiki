@@ -27,11 +27,11 @@ struct CharacterListResponse: Decodable {
 
 struct CharacterPaginationInfoResponse: Decodable {
     enum CodingKeys: String, CodingKey {
-        case count
         case pages
+        case next
     }
-    let count: Int
     let pages: Int
+    let next: Int
 }
 
 struct CharacterInfoResponse: Decodable {
