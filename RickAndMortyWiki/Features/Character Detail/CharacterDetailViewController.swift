@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CharacterDetailViewController: UIViewController {
+class CharacterDetailViewController: UIViewController, CanPresentAlerts {
 
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
@@ -31,6 +31,11 @@ class CharacterDetailViewController: UIViewController {
         
         self.clear()
         self.characterViewModel.onCharacterRetrieved = self.updateUI
+        
+        self.characterViewModel.onCharacterError = { [weak self] error in
+            self?.presentInfoAlert(title: L10n.General.errorTitle, message: error, dismissTitle: L10n.General.ok)
+        }
+        
         self.characterViewModel.onLoadingStatusChanged = { [weak self] isLoading in
             guard let self = self else { return }
             if isLoading {

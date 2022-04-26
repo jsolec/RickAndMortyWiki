@@ -8,6 +8,8 @@
 
 //MARK: - General
 "unknown" = "Unknown";
+"error_title" = "An error has occurred";
+"ok" = "Ok";
 
 //MARK: - Character List
 "characters_list_title" = "Characters";

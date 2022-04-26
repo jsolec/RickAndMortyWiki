@@ -9,6 +9,7 @@ import UIKit
 
 protocol CharactersListViewModelInterface: AnyObject {
     var onCharactersRetrieved: (([CharacterListInfoViewData]) -> Void)! { get set }
+    var onCharactersError: ((String) -> Void)! { get set }
     var onLoadingStatusChanged: ((Bool) -> Void)!  { get set }
     var navigationTitle: String  { get }
     
@@ -26,6 +27,7 @@ class CharactersListViewModel: CharactersListViewModelInterface {
     private var searchText: String? = nil
     
     var onCharactersRetrieved: (([CharacterListInfoViewData]) -> Void)!
+    var onCharactersError: ((String) -> Void)!
     var onLoadingStatusChanged: ((Bool) -> Void)!
     
     let navigationTitle: String = L10n.CharactersListView.title
@@ -45,8 +47,8 @@ class CharactersListViewModel: CharactersListViewModelInterface {
             case .success(let response):
                 let charactersViewModel = self.dependencies.formatter.prepareCharactersViewModel(characters: response)
                 self.onCharactersRetrieved(charactersViewModel)
-            case .failure:
-                break
+            case .failure(let error):
+                self.onCharactersError(error.localizedDescription)
             }
         }
     }

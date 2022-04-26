@@ -11,7 +11,7 @@ protocol CharacterListViewControllerDelegate: AnyObject {
     func characterListViewControllerDidRequestCharacter(withId id: Int)
 }
 
-class CharacterListViewController: UIViewController {
+class CharacterListViewController: UIViewController, CanPresentAlerts {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -41,9 +41,12 @@ class CharacterListViewController: UIViewController {
         self.setupTableView()
         
         self.characterListViewModel.onCharactersRetrieved = { [weak self] characters in
-            self?.loading.hide()
             self?.viewData = characters
             self?.reloadData()
+        }
+        
+        self.characterListViewModel.onCharactersError = { [weak self] error in
+            self?.presentInfoAlert(title: L10n.General.errorTitle, message: error, dismissTitle: L10n.General.ok)
         }
         
         self.characterListViewModel.onLoadingStatusChanged = { [weak self] isLoading in

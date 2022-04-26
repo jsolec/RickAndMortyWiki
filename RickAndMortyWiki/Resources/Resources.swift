@@ -10,6 +10,8 @@ import Foundation
 enum L10n {
     enum General {
         static let unknown = "unknown".localized()
+        static let errorTitle = "error_title".localized()
+        static let ok = "ok".localized()
     }
     
     enum CharactersListView {

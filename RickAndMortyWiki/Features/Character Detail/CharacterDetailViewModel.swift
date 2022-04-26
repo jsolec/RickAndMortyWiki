@@ -9,6 +9,7 @@ import Foundation
 
 protocol CharacterDetailViewModelInterface: AnyObject {
     var onCharacterRetrieved: ((CharacterDetailViewData) -> Void)! { get set }
+    var onCharacterError: ((String) -> Void)! { get set }
     var onLoadingStatusChanged: ((Bool) -> Void)! { get set }
     var navigationTitle: String { get }
     
@@ -23,6 +24,7 @@ class CharacterDetailViewModel: CharacterDetailViewModelInterface {
     }
     
     var onCharacterRetrieved: ((CharacterDetailViewData) -> Void)!
+    var onCharacterError: ((String) -> Void)!
     var onLoadingStatusChanged: ((Bool) -> Void)!
     
     let navigationTitle: String = L10n.CharactersListView.title
@@ -44,7 +46,8 @@ class CharacterDetailViewModel: CharacterDetailViewModelInterface {
                 let characterViewModel = self.dependencies.formatter.prepareCharacterDetailViewModel(character: response!)
                 self.onCharacterRetrieved(characterViewModel)
                 self.onLoadingStatusChanged(false)
-            case .failure: break
+            case .failure(let error):
+                self.onCharacterError(error.localizedDescription)
             }
         }
     }
