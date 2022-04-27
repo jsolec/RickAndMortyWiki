@@ -24,6 +24,8 @@
 "characters_detail_created" = "Created:";
 "characters_detail_status" = "Status:";
 "characters_detail_species" = "Species:";
+"characters_detail_type" = "Type:";
 "characters_detail_gender" = "Gender:";
 "characters_detail_origin" = "Origin:";
 "characters_detail_current_location" = "Current location:";
+"characters_detail_location_format" = "%1$@ in %2$@";

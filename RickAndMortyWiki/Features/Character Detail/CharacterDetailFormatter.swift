@@ -18,8 +18,21 @@ class CharacterDetailFormatter {
         return CharacterDetailViewData(
             name: character.name,
             status: "\(L10n.CharacterDetailView.status) \(character.status.title)",
+            species: "\(L10n.CharacterDetailView.species) \(self.unwrapContent(character.species))",
+            type: "\(L10n.CharacterDetailView.type) \(self.unwrapContent(character.type))",
+            gender: "\(L10n.CharacterDetailView.gender) \(character.gender.rawValue)",
+            origin: "\(L10n.CharacterDetailView.origin) \(self.buildLocation(character.origin))",
+            location: "\(L10n.CharacterDetailView.currentLocation) \(self.buildLocation(character.location))",
             imageURL: imageURL
         )
+    }
+    
+    private func unwrapContent(_ content: String?) -> String {
+        content ?? L10n.General.unknown
+    }
+    
+    private func buildLocation(_ location: LocationResponse) -> String {
+        String(format: L10n.CharacterDetailView.locationFormat, location.name, location.dimension)
     }
 }
 
