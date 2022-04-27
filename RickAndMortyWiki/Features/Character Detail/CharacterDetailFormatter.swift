@@ -19,7 +19,6 @@ class CharacterDetailFormatter {
             name: character.name,
             status: "\(L10n.CharacterDetailView.status) \(character.status.title)",
             species: "\(L10n.CharacterDetailView.species) \(self.unwrapContent(character.species))",
-            type: "\(L10n.CharacterDetailView.type) \(self.unwrapContent(character.type))",
             gender: "\(L10n.CharacterDetailView.gender) \(character.gender.rawValue)",
             origin: "\(L10n.CharacterDetailView.origin) \(self.buildLocation(character.origin))",
             location: "\(L10n.CharacterDetailView.currentLocation) \(self.buildLocation(character.location))",

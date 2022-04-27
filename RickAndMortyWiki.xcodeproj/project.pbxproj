@@ -14,7 +14,6 @@
 		B210A84B28156E0800B9F904 /* AllCharactersDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210A84A28156E0800B9F904 /* AllCharactersDataFetcher.swift */; };
 		B210A84D2815991E00B9F904 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210A84C2815991E00B9F904 /* API.swift */; };
 		B210A8552815A7E300B9F904 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210A8532815A7E300B9F904 /* CharacterDetailViewController.swift */; };
-		B210A8562815A7E300B9F904 /* CharacterDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B210A8542815A7E300B9F904 /* CharacterDetailViewController.xib */; };
 		B210A8582815ACBD00B9F904 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210A8572815ACBD00B9F904 /* CharacterDetailViewModel.swift */; };
 		B210A85A2815ADD700B9F904 /* CharacterDetailViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210A8592815ADD700B9F904 /* CharacterDetailViewData.swift */; };
 		B210A85C2815AF7B00B9F904 /* CharacterDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210A85B2815AF7B00B9F904 /* CharacterDataFetcher.swift */; };
@@ -77,7 +76,6 @@
 		B210A84A28156E0800B9F904 /* AllCharactersDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCharactersDataFetcher.swift; sourceTree = "<group>"; };
 		B210A84C2815991E00B9F904 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = RickAndMortyWiki/API.swift; sourceTree = SOURCE_ROOT; };
 		B210A8532815A7E300B9F904 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
-		B210A8542815A7E300B9F904 /* CharacterDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetailViewController.xib; sourceTree = "<group>"; };
 		B210A8572815ACBD00B9F904 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
 		B210A8592815ADD700B9F904 /* CharacterDetailViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewData.swift; sourceTree = "<group>"; };
 		B210A85B2815AF7B00B9F904 /* CharacterDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataFetcher.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				B210A8532815A7E300B9F904 /* CharacterDetailViewController.swift */,
-				B210A8542815A7E300B9F904 /* CharacterDetailViewController.xib */,
 				B210A8572815ACBD00B9F904 /* CharacterDetailViewModel.swift */,
 				B210A8592815ADD700B9F904 /* CharacterDetailViewData.swift */,
 				B210A85F2815B41B00B9F904 /* CharacterDetailFormatter.swift */,
@@ -473,7 +470,6 @@
 				B2E2EF7C2811D54100836D53 /* Localizable.strings in Resources */,
 				B298170728154D31006383EA /* Queries.graphql in Resources */,
 				B2E2EF3B2811CBE600836D53 /* LaunchScreen.storyboard in Resources */,
-				B210A8562815A7E300B9F904 /* CharacterDetailViewController.xib in Resources */,
 				B2E2EF382811CBE600836D53 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

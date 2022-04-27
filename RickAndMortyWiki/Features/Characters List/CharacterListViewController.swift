@@ -65,10 +65,6 @@ class CharacterListViewController: UIViewController, CanPresentAlerts {
         
         self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         self.tableView.addSubview(self.refreshControl)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
         self.characterListViewModel.getCharacters()
     }
