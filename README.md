@@ -10,11 +10,11 @@ This fact causes that code isn't good to be tested on Network side, on the futur
 
 The models with `Decodable` are because if I want to move back to URLSession approach on the future, thats why I kept `URLSession` related classes
 
-###### Init project
+## Init project
 - Go to base folder
 - execute `pod install`
 
-###### Next steps
+## Next steps
 - Move baseURL to Cocoapod keys, is not strictly necessary but security wise would be interesting
 - Migrate to some client that allows test easier
 - Refactor test code 
