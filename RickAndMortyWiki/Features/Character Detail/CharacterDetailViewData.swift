@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharacterDetailViewData {
+struct CharacterDetailViewData: Equatable {
     let name: String
     let status: String
     let species: String

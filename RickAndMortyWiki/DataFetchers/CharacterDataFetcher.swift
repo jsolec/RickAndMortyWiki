@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CharacterDataFetcherInterface: AnyObject {
-    func getCharacterBy(id: Int, completion: @escaping ((Result<CharacterDetailResponse?, Error>) -> ()))
+    func getCharacterBy(id: Int, completion: @escaping ((Result<CharacterDetailResponse, Error>) -> ()))
 }
 
 class CharacterDataFetcher: CharacterDataFetcherInterface {
@@ -23,7 +23,7 @@ class CharacterDataFetcher: CharacterDataFetcherInterface {
         self.dependencies = dependencies
     }
     
-    func getCharacterBy(id: Int, completion: @escaping ((Result<CharacterDetailResponse?, Error>) -> ())) {
+    func getCharacterBy(id: Int, completion: @escaping ((Result<CharacterDetailResponse, Error>) -> ())) {
         
         self.dependencies.networkService.client.fetch(query: GetCharacterByIdQuery(id: String(id)), queue: .main, resultHandler: { result in
             switch result {
@@ -32,7 +32,8 @@ class CharacterDataFetcher: CharacterDataFetcherInterface {
                       let characterId = character.id,
                       let id = Int(characterId),
                       let name = character.name else {
-                    completion(.success(nil))
+                    let context = DecodingError.Context(codingPath: [], debugDescription: "Missing important data to parse")
+                    completion(.failure(DecodingError.valueNotFound(CharacterDetailResponse.self, context)))
                     return
                 }
                 

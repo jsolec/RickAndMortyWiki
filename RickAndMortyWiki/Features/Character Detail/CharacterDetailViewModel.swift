@@ -41,11 +41,11 @@ class CharacterDetailViewModel: CharacterDetailViewModelInterface {
         self.onLoadingStatusChanged(true)
         self.dependencies.characterDataFetcher.getCharacterBy(id: self.characterId) { [weak self] response in
             guard let self = self else { return }
+            self.onLoadingStatusChanged(false)
             switch response {
             case .success(let response):
-                let characterViewModel = self.dependencies.formatter.prepareCharacterDetailViewModel(character: response!)
+                let characterViewModel = self.dependencies.formatter.prepareCharacterDetailViewModel(character: response)
                 self.onCharacterRetrieved(characterViewModel)
-                self.onLoadingStatusChanged(false)
             case .failure(let error):
                 self.onCharacterError(error.localizedDescription)
             }
