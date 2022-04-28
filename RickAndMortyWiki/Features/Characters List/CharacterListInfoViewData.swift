@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharacterListInfoViewData {
+struct CharacterListInfoViewData: Equatable {
     let id: Int
     let name: String
     let thumbnailUrl: URL?
