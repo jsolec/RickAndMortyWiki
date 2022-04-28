@@ -32,16 +32,20 @@ class CharacterListCell: UITableViewCell {
         stackView.layoutMargins = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
         stackView.isUserInteractionEnabled = false
         stackView.spacing = 10
-        contentView.addSubview(stackView)
+        self.contentView.addSubview(stackView)
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let heightConstraint = self.thumbnailImageView.heightAnchor.constraint(equalToConstant: self.imageHeight)
+        heightConstraint.priority = .init(rawValue: 999)//In order to silence log warnings
+        
         NSLayoutConstraint.activate([
             self.thumbnailImageView.widthAnchor.constraint(equalToConstant: self.imageHeight),
-            self.thumbnailImageView.heightAnchor.constraint(equalTo: self.thumbnailImageView.widthAnchor),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            heightConstraint,
+            stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
         ])
     }
     

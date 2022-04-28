@@ -20,18 +20,14 @@ class CharacterDetailFormatter {
             status: "\(L10n.CharacterDetailView.status) \(character.status.title)",
             species: "\(L10n.CharacterDetailView.species) \(self.unwrapContent(character.species))",
             gender: "\(L10n.CharacterDetailView.gender) \(character.gender.rawValue)",
-            origin: "\(L10n.CharacterDetailView.origin) \(self.buildLocation(character.origin))",
-            location: "\(L10n.CharacterDetailView.currentLocation) \(self.buildLocation(character.location))",
+            origin: "\(L10n.CharacterDetailView.origin) \(self.unwrapContent(character.origin.name))",
+            location: "\(L10n.CharacterDetailView.currentLocation) \(self.unwrapContent(character.location.name))",
             imageURL: imageURL
         )
     }
     
     private func unwrapContent(_ content: String?) -> String {
         content ?? L10n.General.unknown
-    }
-    
-    private func buildLocation(_ location: LocationResponse) -> String {
-        String(format: L10n.CharacterDetailView.locationFormat, location.name, location.dimension)
     }
 }
 

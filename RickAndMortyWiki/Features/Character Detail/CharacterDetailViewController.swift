@@ -75,10 +75,19 @@ class CharacterDetailViewController: UIViewController, CanPresentAlerts {
             self.locationLabel
         ])
         
+        self.nameLabel.numberOfLines = 0
+        self.statusLabel.numberOfLines = 0
+        self.genderLabel.numberOfLines = 0
+        self.speciesLabel.numberOfLines = 0
+        self.originLabel.numberOfLines = 0
+        self.locationLabel.numberOfLines = 0
+        
         contentStack.spacing = 3
         contentStack.axis = .vertical
         contentStack.alignment = .fill
         contentStack.distribution = .fill
+        contentStack.isLayoutMarginsRelativeArrangement = true
+        contentStack.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         
         let vStack = UIStackView(arrangedSubviews: [self.imageView, contentStack])
         vStack.spacing = 10
